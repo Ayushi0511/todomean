@@ -8,7 +8,9 @@ import { ListComponent } from './components/list/list.component';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
  import {MatToolbarModule} from '@angular/material';
+import{HttpClientModule} from '@angular/common/http';
 
+import {IssueService} from './issue.service';
 const routes:Routes=[
   {path:'create',component:CreateComponent},
   {path:'edit/:id',component:EditComponent},
@@ -27,9 +29,10 @@ const routes:Routes=[
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [IssueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
